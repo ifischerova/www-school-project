@@ -187,6 +187,12 @@ h2 {
   margin: 10px;
   text-transform: uppercase;
   font-size: 1.2em;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1em;
+  margin: 10px 0;
 }
 
 .about-section,
@@ -194,6 +200,10 @@ h2 {
   width: 80%;
   font-weight: 300;
   text-align: justify;
+}
+
+.organizators-section div span {
+  font-weight: 600;
 }
 
 .team-container {
@@ -207,6 +217,7 @@ h2 {
 
 .team-container p:last-child {
   text-align: center;
+  font-weight: 600;
 }
 
 .image-wrapper {
@@ -218,6 +229,7 @@ h2 {
   max-height: 300px;
 }
 
+/* ABOUT & HOMEPAGE */
 .motto {
   margin: 20px 0;
   text-align: center;
@@ -243,6 +255,7 @@ h2 {
   text-align: center;
 }
 
+/* TERMS AND CONDITIONS */
 .terms-conditions-section {
   padding: 15px;
 }
@@ -524,7 +537,7 @@ footer {
     padding: 20px 0;
   }
 
-  .team-container p,
+  .team-container div,
   .image-wrapper {
     width: 50%;
     padding: 0;
