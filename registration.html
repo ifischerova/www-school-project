@@ -1,0 +1,158 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dohodněte si společnou cestu za běžeckými zážitky!"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/42ccad3a95.js" crossorigin="anonymous"></script>
+    <title>Spoj se-běhej-sdílej</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header id="navbar">
+      <nav class="navbar-container container">
+        <a href="/" class="home-link">
+          <!--div class="navbar-logo"></div-->
+          Běžci sobě
+        </a>
+        <button
+          type="button"
+          id="navbar-toggle"
+          aria-controls="navbar-menu"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span> 
+        </button>
+        <div id="navbar-menu" aria-labelledby="navbar-toggle">
+          <ul class="navbar-links">
+            <li class="navbar-item">
+              <a class="navbar-link" href="/about.html">O nás</a>
+            </li>
+            <li class="navbar-item">
+              <a class="navbar-link" href="/races.html">Závody</a>
+            </li>
+            <li class="navbar-item">
+              <a class="navbar-link" href="/organizators.html">Organizátoři</a>
+            </li>
+            <li class="navbar-item">
+              <a class="navbar-link" href="/registration.html">Registrace</i></a>
+            </li>
+            <li class="navbar-item">
+                <a class="navbar-link" href="/login.html"><i class="fa-regular fa-user"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- END OF HEADER -->
+    <!-- MAIN -->
+    <main>
+      <section>
+        <h1>Běhej dál - dojeď rychleji!</h1>
+        <p class="motto-paragraph">
+          Sdílej jízdy s ostatními běžci a snadno doraz na svůj další start.
+        </p>
+      </section>
+      <section class="form-section">
+        <form
+          id="registration-form"
+          class="form"
+          action="/?form_submit=success"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <div class="hidden">
+            <label>
+              Don’t fill this out if you’re human: <input name="bot-field" />
+            </label>
+          </div>
+          <div class="form-div">
+            <label class="form-label" for="name">Jméno</label
+            ><input
+              class="form-input"
+              type="text"
+              id="name"
+              name="name"
+              required
+            />
+          </div>
+          <div class="form-div">
+            <label class="form-label" for="surname">Příjmení</label
+            ><input
+              class="form-input"
+              type="text"
+              id="surname"
+              name="surname"
+              required
+            />
+          </div>
+          <div class="form-div">
+            <label class="form-label" for="surname"
+              >Kraj/Region</label
+            ><input
+              class="form-input"
+              type="text"
+              id="region"
+              name="region"
+              required
+            />
+          </div>
+          <div class="form-div">
+            <label class="form-label" for="email">Email</label
+            ><input
+              class="form-input"
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+          </div>
+          <div class="form-div">
+            <input
+              type="checkbox"
+              id="terms-conditions"
+              name="terms-conditions"
+              value="Terms&Conditions"
+            /><label for="terms" class="form-checkbox">
+              Přečetla/a jsem si
+              <a class="terms-conditions" href="/terms_conditions.html">Podmínky</a> a jsem si
+              vědom/a, že registrací s nimi souhlasím.</label
+            >
+          </div>
+
+          <input
+            type="submit"
+            value="CHCI BÝT RYCHLEJI NA&nbsp;STARTU!"
+            class="submit-form-button"
+            id="submit-form-button"
+          />
+          <div class="form-div-icons">
+            <a href=""><i class="fa-brands fa-google"></i></a>
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+          </div>
+          <div class="form-div">
+            <p class="login-paragraph">Už jsem mezi Běžci - chci se <a class="login-link" href="/login.html">PŘIHLÁSIT</a>.</p>
+          </div>
+        </form>
+      </section>
+    </main>
+    <!-- END OF MAIN -->
+    <!--FOOTER -->
+    <footer>2024 &copy; made with &#9829; by Iva Fischerová</footer>
+    <!-- END OF FOOTER -->
+  </body>
+  <script src="index.js"></script>
+</html>
