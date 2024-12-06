@@ -20,7 +20,7 @@
     <!-- HEADER -->
     <header id="navbar">
       <nav class="navbar-container container">
-        <a href="/" class="home-link">
+        <a href="index.html" class="home-link">
           <!--div class="navbar-logo"></div-->
           Běžci sobě
         </a>
@@ -33,24 +33,24 @@
         >
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+          <span class="icon-bar"></span> 
         </button>
         <div id="navbar-menu" aria-labelledby="navbar-toggle">
           <ul class="navbar-links">
             <li class="navbar-item">
-              <a class="navbar-link" href="/about.html">O nás</a>
+              <a class="navbar-link" href="about.html">O nás</a>
             </li>
             <li class="navbar-item">
-              <a class="navbar-link" href="/races.html">Závody</a>
+              <a class="navbar-link" href="races.html">Závody</a>
             </li>
             <li class="navbar-item">
-              <a class="navbar-link" href="/organizators.html">Organizátoři</a>
+              <a class="navbar-link" href="organizators.html">Organizátoři</a>
             </li>
             <li class="navbar-item">
-              <a class="navbar-link" href="/registration.html">Registrace</i></a>
+              <a class="navbar-link" href="registration.html">Registrace</i></a>
             </li>
             <li class="navbar-item">
-                <a class="navbar-link" href="/login.html"><i class="fa-regular fa-user"></i></a>
+                <a class="navbar-link" href="login.html"><i class="fa-regular fa-user"></i></a>
             </li>
           </ul>
         </div>
@@ -67,7 +67,7 @@
       </section>
       <section class="form-section">
         <form
-          id="login-form"
+          id="registration-form"
           class="form"
           action="/?form_submit=success"
           method="POST"
@@ -80,6 +80,37 @@
             </label>
           </div>
           <div class="form-div">
+            <label class="form-label" for="name">Jméno</label
+            ><input
+              class="form-input"
+              type="text"
+              id="name"
+              name="name"
+              required
+            />
+          </div>
+          <div class="form-div">
+            <label class="form-label" for="surname">Příjmení</label
+            ><input
+              class="form-input"
+              type="text"
+              id="surname"
+              name="surname"
+              required
+            />
+          </div>
+          <div class="form-div">
+            <label class="form-label" for="surname"
+              >Kraj/Region</label
+            ><input
+              class="form-input"
+              type="text"
+              id="region"
+              name="region"
+              required
+            />
+          </div>
+          <div class="form-div">
             <label class="form-label" for="email">Email</label
             ><input
               class="form-input"
@@ -90,23 +121,30 @@
             />
           </div>
           <div class="form-div">
-            <label class="form-label" for="pwd">Heslo</label
-            ><input
-              class="form-input"
-              type="password"
-              id="pwd"
-              name="pwd"
-              required
-            />
+            <input
+              type="checkbox"
+              id="terms-conditions"
+              name="terms-conditions"
+              value="Terms&Conditions"
+            /><label for="terms" class="form-checkbox">
+              Přečetla/a jsem si
+              <a class="terms-conditions" href="terms_conditions.html">Podmínky</a> a jsem si
+              vědom/a, že registrací s nimi souhlasím.</label
+            >
           </div>
+
           <input
             type="submit"
-            value="PŘIHLÁSIT"
+            value="CHCI BÝT RYCHLEJI NA&nbsp;STARTU!"
             class="submit-form-button"
             id="submit-form-button"
           />
-          <div class="form-div"></div>
-            <p class="pwd-paragraph"> <a class="pwd-link" href="/forgotten_pwd.html">Zapomněl/a jsem heslo</a>.</p>
+          <div class="form-div-icons">
+            <a href=""><i class="fa-brands fa-google"></i></a>
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+          </div>
+          <div class="form-div">
+            <p class="login-paragraph">Už jsem mezi Běžci - chci se <a class="login-link" href="login.html">PŘIHLÁSIT</a>.</p>
           </div>
         </form>
       </section>
@@ -116,5 +154,5 @@
     <footer>2024 &copy; made with &#9829; by Iva Fischerová</footer>
     <!-- END OF FOOTER -->
   </body>
-  <script src="index.js"></script>
+  <script src="js/index.js"></script>
 </html>
