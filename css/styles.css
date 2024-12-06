@@ -243,10 +243,11 @@ h2 {
   text-align: center;
 }
 
-.terms-and-conditons-list {
-  display: flex;
-  flex-direction: column;
-  padding: 20px 0; 
+.terms-conditions-section {
+  padding: 15px;
+}
+
+.terms-conditions-section ul {
   width: 90%;
 }
 
@@ -254,6 +255,14 @@ h2 {
   margin: 10px;
   font-weight: 300;
   font-size: 14px;
+  padding: 0; 
+  margin: 0; 
+}
+
+.terms-conditions-section p {
+  font-weight: 300;
+  font-size: 14px; 
+  width: 100%;
 }
 
 /* FORM */
@@ -570,7 +579,9 @@ footer {
     margin-left: 10%;
   }
 
-
+  .terms-conditions-section p {
+    width: 90%;
+  }
 
 
 }
