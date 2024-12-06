@@ -205,6 +205,10 @@ h2 {
   padding-top: 10px;
 }
 
+.team-container p:last-child {
+  text-align: center;
+}
+
 .image-wrapper {
   width: 100%;
 }
