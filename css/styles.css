@@ -238,6 +238,34 @@ h3 {
   text-align: center;
 }
 
+.motto-link {
+  color:hsl(0, 0%, 15%);
+  transition: all 100ms;
+}
+
+.motto-link:hover,
+.motto-link:focus {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 1.2em;
+  transition: all 100ms;
+}
+
+.runners-car-photo {
+  padding-top: 20px;
+  display: block;
+  max-height: 300px;
+  max-width: 300px;
+}
+
+.finish-line-photo {
+  padding-top: 20px;
+  display: block;
+  max-height: 300px;
+  max-width: 500px;
+  width: 100%;
+}
+
 /* TERMS AND CONDITIONS */
 .terms-conditions-section {
   padding: 15px;
