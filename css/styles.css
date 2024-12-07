@@ -206,27 +206,14 @@ h3 {
   font-weight: 600;
 }
 
-.team-container {
-  display: flex;
-  flex-direction: column;
+.team-photo {
+  display: block;
+  max-width: 100%;
+  padding-bottom: 15px;
 }
 
-.team-container p {
-  padding-top: 10px;
-}
-
-.team-container p:last-child {
-  text-align: center;
-  font-weight: 600;
-}
-
-.image-wrapper {
-  width: 100%;
-}
-
-.image-wrapper img {
-  width:100%;
-  max-height: 300px;
+.about-p-with-icons {
+  padding-top: 15px;
 }
 
 /* ABOUT & HOMEPAGE */
@@ -246,7 +233,7 @@ h3 {
 }
 
 .motto-section div span {
- font-weight: 700;
+  font-weight: 700;
 }
 
 .motto-paragraph {
@@ -486,7 +473,6 @@ footer {
   padding: 1rem 0;
 }
 
-
 /* TABLET */
 @media only screen and (min-width: 600px) {
   #navbar-toggle,
@@ -528,24 +514,8 @@ footer {
     width: 50%;
   }
 
-  .team-container {
-    flex-direction: row;
-  }
-
-  .about-section p,
   .organizators-section p {
     padding: 20px 0;
-  }
-
-  .team-container div,
-  .image-wrapper {
-    width: 50%;
-    padding: 0;
-  }
-
-  .image-wrapper img {
-    max-width: 90%;  
-    height: 100%;
   }
 
   /* RACE SELECTOR */
@@ -586,17 +556,17 @@ footer {
       width: 30%;
   }
 
-  .image-wrapper img {
-    max-width: 80%;  
-    max-height: 600px;
-    margin-left: 10%;
-  }
-
   .terms-conditions-section p {
     width: 90%;
   }
 
-
+  .team-photo {
+    display:inline;
+    float: left;
+    padding-bottom: 0;
+    padding-right: 20px;
+    max-width: 40%;
+  }
 }
 
 
