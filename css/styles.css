@@ -202,10 +202,6 @@ h3 {
   text-align: justify;
 }
 
-.organizators-section div span {
-  font-weight: 600;
-}
-
 .team-photo {
   display: block;
   max-width: 100%;
@@ -465,6 +461,24 @@ th {
   transition: all 100ms;
 }
 
+/* ORGANIZATORS */
+.organizators-contact-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  color:hsl(0, 0%, 15%);
+  padding: 15;
+  transition: all 100ms;
+}
+
+.organizators-contact-link:focus,
+.organizators-contact-link:hover {
+  color:hsl(0, 0%, 15%);
+  font-weight: 700;
+  font-size: 1.4em;
+  transition: all 100ms;
+}
+
 /* FOOTER*/
 footer {
   color:hsl(0, 0%, 25%);
@@ -514,6 +528,7 @@ footer {
     width: 50%;
   }
 
+  /* DESKTOP */
   .organizators-section p {
     padding: 20px 0;
   }
