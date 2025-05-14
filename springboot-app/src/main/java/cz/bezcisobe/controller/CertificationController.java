@@ -1,13 +1,14 @@
 package cz.bezcisobe.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import cz.bezcisobe.model.Certification;
 import cz.bezcisobe.service.CertificationService;
-
-import java.util.List;
+import cz.bezcisobe.dto.request.CreateCertificationRequest;
+import cz.bezcisobe.dto.response.CertificationResponse;
+import cz.bezcisobe.dto.response.CertificationListResponse;
 
 @RestController
 @RequestMapping("/api/certification")
@@ -16,30 +17,29 @@ public class CertificationController {
     private CertificationService certificationService;
 
     @GetMapping
-    public List<Certification> getAllCertifications() {
+    public CertificationListResponse getAllCertifications() {
         return certificationService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Certification> getCertificationById(@PathVariable Long id) {
+    public ResponseEntity<CertificationResponse> getCertificationById(@PathVariable Long id) {
         return certificationService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Certification createCertification(@RequestBody Certification certification) {
-        return certificationService.save(certification);
+    public CertificationResponse createCertification(@Valid @RequestBody CreateCertificationRequest request) {
+        return certificationService.create(request);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Certification> updateCertification(@PathVariable Long id, 
-                                                           @RequestBody Certification certification) {
-        if (!certificationService.findById(id).isPresent()) {
-            return ResponseEntity.notFound().build();
-        }
-        certification.setID(id);
-        return ResponseEntity.ok(certificationService.save(certification));
+    public ResponseEntity<CertificationResponse> updateCertification(
+            @PathVariable Long id,
+            @Valid @RequestBody CreateCertificationRequest request) {
+        return certificationService.update(id, request)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
