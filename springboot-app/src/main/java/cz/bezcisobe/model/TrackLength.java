@@ -8,7 +8,7 @@ import lombok.Data;
 @Table
 public class TrackLength {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long ID;
     private String name;
 }

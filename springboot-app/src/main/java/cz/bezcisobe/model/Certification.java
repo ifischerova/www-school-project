@@ -9,7 +9,7 @@ import java.util.List;
 @Table
 public class Certification {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long ID;
     
     private String name;

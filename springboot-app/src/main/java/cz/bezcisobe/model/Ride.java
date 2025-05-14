@@ -11,7 +11,7 @@ import java.util.List;
 @Table
 public class Ride {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long ID;
     private LocalDate departureDate;
     private LocalTime departureTime;
