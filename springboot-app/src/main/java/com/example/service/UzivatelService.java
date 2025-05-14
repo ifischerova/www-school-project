@@ -1,14 +1,14 @@
 package com.example.service;
 
 import com.example.model.Uzivatel;
-import com.example.repository.UserRepository;
+import com.example.repository.UzivatelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class UzivatelService {
     @Autowired
-    private UserRepository userRepository;
+    private UzivatelRepository userRepository;
 
     public Uzivatel createUser(Uzivatel user) {
         return userRepository.save(user);

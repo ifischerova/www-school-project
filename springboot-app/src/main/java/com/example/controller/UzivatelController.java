@@ -1,16 +1,16 @@
 package com.example.controller;
 
 import com.example.model.Uzivatel;
-import com.example.service.UserService;
+import com.example.service.UzivatelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/users")
-public class UserController {
+public class UzivatelController {
     @Autowired
-    private UserService userService;
+    private UzivatelService userService;
 
     @PostMapping
     public ResponseEntity<Uzivatel> createUser(@RequestBody Uzivatel user) {

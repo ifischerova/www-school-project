@@ -1,7 +1,7 @@
 package com.example.controller;
 
 import com.example.model.DruhTrate;
-import com.example.service.RaceTypeService;
+import com.example.service.DruhTrateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +10,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/race-types")
-public class RaceTypeController {
+public class DruhTrateController {
     @Autowired
-    private RaceTypeService raceTypeService;
+    private DruhTrateService raceTypeService;
 
     @GetMapping
     public List<DruhTrate> getAllRaceTypes() {

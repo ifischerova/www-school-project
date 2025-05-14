@@ -1,7 +1,7 @@
 package com.example.controller;
 
 import com.example.model.Poptavka;
-import com.example.service.RequestService;
+import com.example.service.PoptavkaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +10,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/requests")
-public class RequestController {
+public class PoptavkaController {
     @Autowired
-    private RequestService requestService;
+    private PoptavkaService requestService;
 
     @GetMapping
     public List<Poptavka> getAllRequests() {

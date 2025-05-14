@@ -1,14 +1,14 @@
 package com.example.service;
 
 import com.example.model.Zavod;
-import com.example.repository.RaceRepository;
+import com.example.repository.ZavodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RaceService {
+public class ZavodService {
     @Autowired
-    private RaceRepository raceRepository;
+    private ZavodRepository raceRepository;
 
     public Zavod createRace(Zavod race) {
         return raceRepository.save(race);

@@ -1,16 +1,16 @@
 package com.example.service;
 
 import com.example.model.DelkaTrate;
-import com.example.repository.RaceLengthRepository;
+import com.example.repository.DelkaTrateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RaceLengthService {
+public class DelkaTrateService {
     @Autowired
-    private RaceLengthRepository raceLengthRepository;
+    private DelkaTrateRepository raceLengthRepository;
 
     public List<DelkaTrate> findAll() {
         return raceLengthRepository.findAll();

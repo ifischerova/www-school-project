@@ -1,16 +1,16 @@
 package com.example.controller;
 
 import com.example.model.Zavod;
-import com.example.service.RaceService;
+import com.example.service.ZavodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/races")
-public class RaceController {
+public class ZavodController {
     @Autowired
-    private RaceService raceService;
+    private ZavodService raceService;
 
     @PostMapping
     public ResponseEntity<Zavod> createRace(@RequestBody Zavod race) {

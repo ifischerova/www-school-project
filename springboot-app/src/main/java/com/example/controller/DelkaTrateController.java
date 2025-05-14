@@ -1,7 +1,7 @@
 package com.example.controller;
 
 import com.example.model.DelkaTrate;
-import com.example.service.RaceLengthService;
+import com.example.service.DelkaTrateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +10,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/race-lengths")
-public class RaceLengthController {
+public class DelkaTrateController {
     @Autowired
-    private RaceLengthService raceLengthService;
+    private DelkaTrateService raceLengthService;
 
     @GetMapping
     public List<DelkaTrate> getAllRaceLengths() {

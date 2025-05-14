@@ -1,7 +1,7 @@
 package com.example.controller;
 
 import com.example.model.Certifikace;
-import com.example.service.CertificationService;
+import com.example.service.CertifikaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +10,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/certifications")
-public class CertificationController {
+public class CertifikaceController {
     @Autowired
-    private CertificationService certificationService;
+    private CertifikaceService certificationService;
 
     @GetMapping
     public List<Certifikace> getAllCertifications() {

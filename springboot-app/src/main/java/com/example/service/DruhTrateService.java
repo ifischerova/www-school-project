@@ -1,16 +1,16 @@
 package com.example.service;
 
 import com.example.model.DruhTrate;
-import com.example.repository.RaceTypeRepository;
+import com.example.repository.DruhTrateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RaceTypeService {
+public class DruhTrateService {
     @Autowired
-    private RaceTypeRepository raceTypeRepository;
+    private DruhTrateRepository raceTypeRepository;
 
     public List<DruhTrate> findAll() {
         return raceTypeRepository.findAll();
