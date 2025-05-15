@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import cz.bezcisobe.dto.response.LoginResponse;
 import cz.bezcisobe.model.Role;
 import cz.bezcisobe.model.User;
 import cz.bezcisobe.repository.UserRepository;
@@ -20,7 +21,7 @@ public class UserService {
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 
-    public String login(String username, String password) {
+    public LoginResponse login(String username, String password) {
         // Authenticate user and generate token
         User user = userRepository.findByUsername(username)
             .orElseThrow(() -> new RuntimeException("User not found"));
@@ -28,8 +29,8 @@ public class UserService {
         if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new RuntimeException("Invalid password");
         }
-        
-        return jwtTokenUtil.generateToken(user);
+
+        return new LoginResponse(user.getId(), jwtTokenUtil.generateToken(user));
     }
 
     public void register(String username, String email, String password) {

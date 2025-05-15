@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cz.bezcisobe.dto.request.LoginRequest;
 import cz.bezcisobe.dto.request.RegisterRequest;
-import cz.bezcisobe.dto.response.LoginResponse;
 import cz.bezcisobe.service.UserService;
 
 
@@ -21,8 +20,7 @@ public class AuthController {
 
   @PostMapping("/login")
   public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
-      String token = userService.login(loginRequest.getUsername(), loginRequest.getPassword());
-      return ResponseEntity.ok(new LoginResponse(token));
+      return ResponseEntity.ok(userService.login(loginRequest.getUsername(), loginRequest.getPassword()));
   }
 
   @PostMapping("/register")

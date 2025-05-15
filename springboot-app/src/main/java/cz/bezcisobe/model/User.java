@@ -2,8 +2,13 @@ package cz.bezcisobe.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.Collection;
@@ -55,6 +60,8 @@ public class User implements UserDetails {
         return roles.contains(Role.ROLE_ADMIN);
     }
 
+    @JsonIgnore
+    @ToString.Exclude
     @OneToMany(mappedBy = "user")
     private List<RideRequest> rideRequests;
 
@@ -67,7 +74,7 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return !isBlocked;
+        return true;
     }
 
     @Override
@@ -77,11 +84,15 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return isEnabled();
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
+    }
+
+    public Long getId() {
+        return ID;
     }
 }
