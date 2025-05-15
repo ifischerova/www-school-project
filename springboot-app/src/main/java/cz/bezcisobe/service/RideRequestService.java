@@ -3,7 +3,6 @@ package cz.bezcisobe.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cz.bezcisobe.model.Race;
 import cz.bezcisobe.model.RideRequest;
 import cz.bezcisobe.repository.RideRequestRepository;
 

@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import cz.bezcisobe.model.Race;
-import cz.bezcisobe.model.User;
 import cz.bezcisobe.service.RaceService;
 
 @RestController

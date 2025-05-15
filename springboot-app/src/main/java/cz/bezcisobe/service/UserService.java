@@ -1,18 +1,60 @@
 package cz.bezcisobe.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import cz.bezcisobe.model.Role;
 import cz.bezcisobe.model.User;
 import cz.bezcisobe.repository.UserRepository;
+import cz.bezcisobe.security.JwtTokenUtil;
 
 @Service
 public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User createUser(User user) {
-        return userRepository.save(user);
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
+    public String login(String username, String password) {
+        // Authenticate user and generate token
+        User user = userRepository.findByUsername(username)
+            .orElseThrow(() -> new RuntimeException("User not found"));
+            
+        if (!passwordEncoder.matches(password, user.getPassword())) {
+            throw new RuntimeException("Invalid password");
+        }
+        
+        return jwtTokenUtil.generateToken(user);
+    }
+
+    public void register(String username, String email, String password) {
+        if (userRepository.existsByUsername(username)) {
+            throw new RuntimeException("Username already exists");
+        }
+
+        if (userRepository.existsByEmail(email)) {
+            throw new RuntimeException("Email already exists");
+        }
+
+        User user = new User();
+        user.setUsername(username);
+        user.setEmail(email);
+        user.setPassword(passwordEncoder.encode(password));
+        user.addRole(Role.ROLE_USER); // Default role
+
+        userRepository.save(user);
+    }
+
+    // Method to promote user to admin
+    public void promoteToAdmin(Long userId) {
+        User user = getUserById(userId);
+        user.addRole(Role.ROLE_ADMIN);
+        userRepository.save(user);
     }
 
     public User getUserById(Long id) {

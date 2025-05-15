@@ -18,5 +18,5 @@ public class CreateRideRequestRequest {
     @NotNull(message = "Number of seats is required")
     @Min(value = 1, message = "Minimum 1 seat required")
     @Max(value = 8, message = "Maximum 8 seats allowed")
-    private Integer seatsRequested;
+    private Integer seatsRequested; 
 }
