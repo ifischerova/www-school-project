@@ -4,3 +4,4 @@ springboot-app/target
 springboot-app/bezci.db
 
 *.png
+*.JPG
