@@ -3,7 +3,7 @@ package cz.bezcisobe.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cz.bezcisobe.model.RaceLength;
+import cz.bezcisobe.model.TrackLength;
 import cz.bezcisobe.repository.TrackLengthRepository;
 
 import java.util.List;
@@ -14,15 +14,15 @@ public class TrackLengthService {
     @Autowired
     private TrackLengthRepository trackLengthRepository;
 
-    public List<RaceLength> findAll() {
+    public List<TrackLength> findAll() {
         return trackLengthRepository.findAll();
     }
 
-    public Optional<RaceLength> findById(Long id) {
+    public Optional<TrackLength> findById(Long id) {
         return trackLengthRepository.findById(id);
     }
 
-    public RaceLength save(RaceLength raceLength) {
+    public TrackLength save(TrackLength raceLength) {
         return trackLengthRepository.save(raceLength);
     }
 

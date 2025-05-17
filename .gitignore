@@ -1,7 +1,7 @@
 .vscode
 
-springboot-app/target
-springboot-app/bezci.db
+backend/target
+backend/bezci.db
 
 *.png
 *.JPG
