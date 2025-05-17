@@ -40,3 +40,7 @@ const showConfirmButton = (show) => {
 const confirmSelection = () => {
   alert("Vaše volba byla potvrzena!");
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateNavbarIcon(); // Replace the existing navbar update code with this line
+});
