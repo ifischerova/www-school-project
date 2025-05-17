@@ -1,0 +1,271 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dohodněte si společnou cestu za běžeckými zážitky!"
+    />
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/42ccad3a95.js" crossorigin="anonymous"></script>
+    <title>Spoj se-běhej-sdílej</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header id="navbar">
+      <nav class="navbar-container container">
+        <a href="index.html" class="home-link">
+          <!--div class="navbar-logo"></div-->
+          Běžci sobě
+        </a>
+        <button
+          type="button"
+          id="navbar-toggle"
+          aria-controls="navbar-menu"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div id="navbar-menu" aria-labelledby="navbar-toggle">
+          <ul class="navbar-links">
+            <li class="navbar-item">
+              <a class="navbar-link" href="about.html">O nás</a>
+            </li>
+            <li class="navbar-item">
+              <a class="navbar-link" href="races.html">Závody</a>
+            </li>
+            <li class="navbar-item">
+              <a class="navbar-link" href="organizators.html">Organizátoři</a>
+            </li>
+            <li class="navbar-item">
+              <a class="navbar-link" href="registration.html">Registrace</i></a>
+            </li>
+            <li class="navbar-item">
+                <a class="navbar-link" href="login.html"><i class="fa-regular fa-user"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- END OF HEADER -->
+    <!-- MAIN -->
+    <main>
+
+        <h1>Běhej dál - dojeď rychleji!</h1>
+        <!-- VYBER ZAVODU -->
+        <h2>Zvol termín závodu</h2>
+        <section class="races-section">
+          <!-- Dropdown s daty -->
+          <select id="date" onchange="showRaces()">
+              <option value="">-- Vyberte datum --</option>
+              <option value="2025-03-15">15. března 2025</option>
+              <option value="2025-04-05">5. dubna 2025</option>
+              <option value="2025-05-04">4. května 2025</option>
+              <option value="2025-06-28">28. června 2025</option>
+          </select>
+
+          <div id="2025-03-15" class="races">
+            <h2>Závody dne 15. března 2025</h2>
+            <ul>
+                <li>ČEZ RunTour Winter Edition – Olomouc</li>
+            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Typ spolujízdy</th>
+                        <th>Jméno uživatele</th>
+                        <th>Odkud</th>
+                        <th>Kam</th>
+                        <th>Značka auta</th>
+                        <th>Počet míst</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Poptávka</td>
+                        <td>Jana Nováková</td>
+                        <td>Praha</td>
+                        <td><input type="text" class="hidden"></td>
+                        <td><input type="text" class="hidden"></td>
+                        <td><select onchange="saveSeats(this)"><option>0</option><option>1</option><option>2</option><option>3</option></select></td>
+                    </tr>
+                    <tr>
+                        <td>Nabídka</td>
+                        <td>Tomáš Dvořák</td>
+                        <td>Brno</td>
+                        <td>Olomouc</td>
+                        <td>Škoda Octavia</td>
+                        <td><select onchange="saveSeats(this)"><option>0</option><option>1</option><option>2</option><option>3</option></select></td>
+                    </tr>
+                    <tr>
+                        <td>Poptávka</td>
+                        <td>Petr Svoboda</td>
+                        <td>Ostrava</td>
+                        <td><input type="text" class="hidden"></td>
+                        <td><input type="text" class="hidden"></td>
+                        <td><select onchange="saveSeats(this)"><option>0</option><option>1</option><option>2</option><option>3</option></select></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <div id="2025-04-05" class="races">
+            <h2>Závody dne 5. dubna 2025</h2>
+            <ul>
+                <li>1/2Maraton Praha 2025</li>
+            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Typ spolujízdy</th>
+                        <th>Jméno uživatele</th>
+                        <th>Odkud</th>
+                        <th>Kam</th>
+                        <th>Značka auta</th>
+                        <th>Počet míst</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nabídka</td>
+                        <td>Eva Malá</td>
+                        <td>Plzeň</td>
+                        <td>Praha</td>
+                        <td>Volkswagen Golf</td>
+                        <td><select onchange="saveSeats(this)"><option>0</option><option>1</option><option>2</option><option>3</option></select></td>
+                    </tr>
+                    <tr>
+                        <td>Poptávka</td>
+                        <td>Martin Novotný</td>
+                        <td>České Budějovice</td>
+                        <td><input type="text" class="hidden"></td>
+                        <td><input type="text" class="hidden"></td>
+                        <td><select onchange="saveSeats(this)"><option>0</option><option>1</option><option>2</option><option>3</option></select></td>
+                    </tr>
+                    <tr>
+                        <td>Nabídka</td>
+                        <td>Karolína Veselá</td>
+                        <td>Brno</td>
+                        <td>Praha</td>
+                        <td>Opel Astra</td>
+                        <td><select><option>0</option><option>1</option><option>2</option><option>3</option></select></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <div id="2025-05-04" class="races">
+            <h2>Závody dne 4. května 2025</h2>
+            <ul>
+                <li>RunCzech Maraton Praha</li>
+            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Typ spolujízdy</th>
+                        <th>Jméno uživatele</th>
+                        <th>Odkud</th>
+                        <th>Kam</th>
+                        <th>Značka auta</th>
+                        <th>Počet míst</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nabídka</td>
+                        <td>Lucie Horská</td>
+                        <td>Karlovy Vary</td>
+                        <td>Praha</td>
+                        <td>Hyundai i30</td>
+                        <td><select onchange="saveSeats(this)"><option>0</option><option>1</option><option>2</option><option>3</option></select></td>
+                    </tr>
+                    <tr>
+                        <td>Poptávka</td>
+                        <td>Jiří Zeman</td>
+                        <td>Ostrava</td>
+                        <td><input type="text" class="hidden"></td>
+                        <td><input type="text" class="hidden"></td>
+                        <td><select onchange="saveSeats(this)"><option>0</option><option>1</option><option>2</option><option>3</option></select></td>
+                    </tr>
+                    <tr>
+                        <td>Nabídka</td>
+                        <td>Alice Černá</td>
+                        <td>Liberec</td>
+                        <td>Praha</td>
+                        <td>Peugeot 308</td>
+                        <td><select onchange="saveSeats(this)"><option>0</option><option>1</option><option>2</option><option>3</option></select></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <div id="2025-06-28" class="races">
+            <h2>Závody dne 28. června 2025</h2>
+            <ul>
+                <li>Mattoni 1/2Maraton Olomouc</li>
+            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Typ spolujízdy</th>
+                        <th>Jméno uživatele</th>
+                        <th>Odkud</th>
+                        <th>Kam</th>
+                        <th>Značka auta</th>
+                        <th>Počet míst</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nabídka</td>
+                        <td>Filip Šimek</td>
+                        <td>Hradec Králové</td>
+                        <td>Olomouc</td>
+                        <td>Ford Focus</td>
+                        <td><select onchange="saveSeats(this)"><option>0</option><option>1</option><option>2</option><option>3</option></select></td>
+                    </tr>
+                    <tr>
+                        <td>Poptávka</td>
+                        <td>Ivana Novotná</td>
+                        <td>Brno</td>
+                        <td><input type="text" class="hidden"></td>
+                        <td><input type="text" class="hidden"></td>
+                        <td><select onchange="saveSeats(this)"><option>0</option><option>1</option><option>2</option><option>3</option></select></td>
+                    </tr>
+                    <tr>
+                        <td>Nabídka</td>
+                        <td>Karel Hruška</td>
+                        <td>Plzeň</td>
+                        <td>Olomouc</td>
+                        <td>Renault Clio</td>
+                        <td><select onchange="saveSeats(this)"><option>0</option><option>1</option><option>2</option><option>3</option></select></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+          <input
+          type="submit"
+          value="POTVRDIT"
+          class="submit-ride-button"
+          id="submit-ride-button"
+          onclick="confirmSelection()"
+        />
+        <!--KONEC VYBERU ZAVODU-->
+      </section>
+    </main>
+    <!-- END OF MAIN -->
+    <!--FOOTER -->
+    <footer>2024 &copy; made with &#9829; by Iva Fischerová</footer>
+    <!-- END OF FOOTER -->
+  </body>
+  <script src="js/index.js"></script>
+</html>
