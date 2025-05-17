@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import cz.bezcisobe.model.RaceLength;
+import cz.bezcisobe.model.TrackLength;
 import cz.bezcisobe.service.TrackLengthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -27,7 +27,7 @@ public class TrackLengthController {
     @ApiResponse(responseCode = "400", description = "Invalid request")
     @ApiResponse(responseCode = "404", description = "Track lenghts not found")
     @GetMapping
-    public List<RaceLength> getAllRaceLengths() {
+    public List<TrackLength> getAllRaceLengths() {
         return RaceLengthService.findAll();
     }
 
@@ -38,7 +38,7 @@ public class TrackLengthController {
     @ApiResponse(responseCode = "200", description = "Found the track length")
     @ApiResponse(responseCode = "404", description = "Track length not found")
     @GetMapping("/{id}")
-    public ResponseEntity<RaceLength> getRaceLengthById(@PathVariable Long id) {
+    public ResponseEntity<TrackLength> getTrackLengthById(@PathVariable Long id) {
         return RaceLengthService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -51,7 +51,7 @@ public class TrackLengthController {
     @ApiResponse(responseCode = "200", description = "Track length created successfully")
     @ApiResponse(responseCode = "400", description = "Invalid input")
     @PostMapping
-    public RaceLength createRaceLength(@RequestBody RaceLength trackLength) {
+    public TrackLength createTrackLength(@RequestBody TrackLength trackLength) {
         return RaceLengthService.save(trackLength);
     }
 
@@ -63,7 +63,7 @@ public class TrackLengthController {
     @ApiResponse(responseCode = "404", description = "Track length not found")
     @ApiResponse(responseCode = "400", description = "Invalid input")
     @PutMapping("/{id}")
-    public ResponseEntity<RaceLength> updateRaceLength(@PathVariable Long id, @RequestBody RaceLength trackLength) {
+    public ResponseEntity<TrackLength> updateTrackLength(@PathVariable Long id, @RequestBody TrackLength trackLength) {
         if (!RaceLengthService.findById(id).isPresent()) {
             return ResponseEntity.notFound().build();
         }
@@ -79,7 +79,7 @@ public class TrackLengthController {
     @ApiResponse(responseCode = "400", description = "Invalid input")
     @ApiResponse(responseCode = "404", description = "Certification not found.")
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteRaceLength(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteTrackLength(@PathVariable Long id) {
         if (!RaceLengthService.findById(id).isPresent()) {
             return ResponseEntity.notFound().build();
         }

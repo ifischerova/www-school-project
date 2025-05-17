@@ -21,7 +21,7 @@ public class Race {
 
     @ManyToOne
     @JoinColumn(name = "ID_trackLength")
-    private RaceLength trackLength;
+    private TrackLength trackLength;
 
     @ManyToOne
     @JoinColumn(name = "ID_trackType")
