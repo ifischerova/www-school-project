@@ -62,51 +62,21 @@
       <section>
         <h1>Běhej dál - dojeď rychleji!</h1>
         <p class="motto">
-          Spojujeme běžce na cestě za společnými cíli – ušetříš náklady, čas a planetu.
+          Spojujeme běžce na cestě za společnými cíli – šetříš peníze, čas i planetu.
         </p>
       </section>
       <section class="form-section">
         <form
           id="registration-form"
           class="form"
-          action="/?form_submit=success"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
         >
-          <div class="hidden">
-            <label>
-              Don’t fill this out if you’re human: <input name="bot-field" />
-            </label>
-          </div>
           <div class="form-div">
-            <label class="form-label" for="name">Jméno</label
+            <label class="form-label" for="username">Uživatelské jméno:</label
             ><input
               class="form-input"
               type="text"
-              id="name"
-              name="name"
-              required
-            />
-          </div>
-          <div class="form-div">
-            <label class="form-label" for="surname">Příjmení</label
-            ><input
-              class="form-input"
-              type="text"
-              id="surname"
-              name="surname"
-              required
-            />
-          </div>
-          <div class="form-div">
-            <label class="form-label" for="surname"
-              >Kraj/Region</label
-            ><input
-              class="form-input"
-              type="text"
-              id="region"
-              name="region"
+              id="username"
+              name="username"
               required
             />
           </div>
@@ -117,6 +87,16 @@
               type="email"
               id="email"
               name="email"
+              required
+            />
+          </div>
+          <div class="form-div">
+            <label class="form-label" for="password">Heslo</label
+            ><input
+              class="form-input"
+              type="password"
+              id="password"
+              name="password"
               required
             />
           </div>
@@ -155,4 +135,5 @@
     <!-- END OF FOOTER -->
   </body>
   <script src="js/index.js"></script>
+  <script src="js/registration.js"></script>
 </html>
