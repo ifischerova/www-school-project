@@ -5,3 +5,4 @@ springboot-app/bezci.db
 
 *.png
 *.JPG
+*.drawio
