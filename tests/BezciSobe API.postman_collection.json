@@ -1,0 +1,815 @@
+{
+	"info": {
+		"_postman_id": "f3baef6e-7c4a-43c2-b29b-d5e933ed7418",
+		"name": "BezciSobe API",
+		"description": "Collection for testing BezciSobe REST API endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13860309"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "createUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"let response = pm.response.json();\r",
+									"\r",
+									"if (response.id) {\r",
+									"    pm.environment.set(\"user_id\", response.id);\r",
+									"    console.log(\"Uloženo ID:\", response.id);\r",
+									"} else {\r",
+									"    console.warn(\"ID nebylo nalezeno v odpovědi\");\r",
+									"    pm.test(\"ID exists in response\", function () {\r",
+									"        pm.expect(response.id).to.not.be.undefined;\r",
+									"    });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"uzivatelskeJmeno\": \"testUser\",\n  \"heslo\": \"password123\",\n  \"admin\": false,\n  \"googleId\": \"null\",\n  \"facebookId\": \"null\",\n  \"jmeno\": \"Iva\",\n  \"prijmeni\": \"Fischerova\",\n  \"email\": \"test@example.com\",\n  \"telefon\": \"+420123456789\",\n  \"mesto\": \"Praha\",\n  \"platnostRidicskehoPrukazu\": \"true\",\n  \"cisloRidicskehoPrukazu\": \"123456789\",\n  \"jeBlokovan\": false,  \n  \"poznamka\": \"Ukladam test uzivatele.\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}api/user",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"uzivatelskeJmeno\": \"updatedUser\",\n  \"email\": \"updated@example.com\",\n  \"telefon\": \"+420987654321\",\n  \"mesto\": \"Brno\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}api/user/{{user_id}}",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"user",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/user/{{user_id}}",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"user",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/user/{{user_id}}",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"user",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Races",
+			"item": [
+				{
+					"name": "createRace",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"let response = pm.response.json();\r",
+									"\r",
+									"if (response.id) {\r",
+									"    pm.environment.set(\"race_id\", response.id);\r",
+									"    console.log(\"Uloženo ID:\", response.id);\r",
+									"} else {\r",
+									"    console.warn(\"ID nebylo nalezeno v odpovědi\");\r",
+									"    pm.test(\"ID exists in response\", function () {\r",
+									"        pm.expect(response.id).to.not.be.undefined;\r",
+									"    });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Maraton Praha\",\n  \"place\": \"Praha\",\n  \"startDate\": \"2025-05-10\",\n  \"startTime\": \"09:00\",\n  \"web\": \"https://www.maratonpraha.cz\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/race",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"race"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRace",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nazev\": \"Updated Maraton Praha\",\n  \"mistoKonani\": \"Praha\",\n  \"datumKonani\": \"2025-06-10\",\n  \"casKonani\": \"10:00\",\n  \"web\": \"https://www.updated-maraton.cz\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}api/races/{{race_id}}",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"races",
+								"{{race_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRaceById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/race/{{race_id}}",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"race",
+								"{{race_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRace",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/races/{{race_id}}",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"races",
+								"{{race_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Poptavky",
+			"item": [
+				{
+					"name": "getAllRequests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/requests",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"let response = pm.response.json();\r",
+									"\r",
+									"if (response.id) {\r",
+									"    pm.environment.set(\"request_id\", response.id);\r",
+									"    console.log(\"Uloženo ID:\", response.id);\r",
+									"} else {\r",
+									"    console.warn(\"ID nebylo nalezeno v odpovědi\");\r",
+									"    pm.test(\"ID exists in response\", function () {\r",
+									"        pm.expect(response.id).to.not.be.undefined;\r",
+									"    });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"datumOdjezdu\": \"2025-05-10T07:00:00\",\n  \"casOdjezdu\": \"07:00\",\n  \"mistoOdjezdu\": \"Brno\",\n  \"pocetMist\": 3,\n  \"poznamka\": \"Hledam spolujizdu na maraton\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}api/requests",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"datumOdjezdu\": \"2025-05-10T08:00:00\",\n  \"casOdjezdu\": \"08:00\",\n  \"mistoOdjezdu\": \"Olomouc\",\n  \"pocetMist\": 4,\n  \"poznamka\": \"Updated: Hledam spolujizdu na maraton\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}api/requests/{{request_id}}",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"requests",
+								"{{request_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRequestById",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/requests/{{request_id}}",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"requests",
+								"{{request_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRequestByUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/requests/user/{{user_id}}",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"requests",
+								"user",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/requests/{{request_id}}",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"requests",
+								"{{request_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Certifications",
+			"item": [
+				{
+					"name": "createCertification",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"let response = pm.response.json();\r",
+									"\r",
+									"if (response.id) {\r",
+									"    pm.environment.set(\"certification_id\", response.id);\r",
+									"    console.log(\"Uloženo ID:\", response.id);\r",
+									"} else {\r",
+									"    console.warn(\"ID certifikace nebylo nalezeno v odpovědi\");\r",
+									"    pm.test(\"ID exists in response\", function () {\r",
+									"        pm.expect(response.id).to.not.be.undefined;\r",
+									"    });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Silver Race\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/certification",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"certification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listCertifications",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/certification",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"certification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCertification",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/certification/{{certification_id}}",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"certification",
+								"{{certification_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCertification",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/certification/{{certification_id}}",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"certification",
+								"{{certification_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"testuser5\",\r\n    \"email\": \"test5@example.com\",\r\n    \"password\": \"testtest\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/auth/register",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"token\", pm.response.json().token);\r",
+									"pm.environment.set(\"user_id\", pm.response.json().userId);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/auth/login",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
