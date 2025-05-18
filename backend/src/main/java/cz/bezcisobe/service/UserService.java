@@ -10,6 +10,7 @@ import cz.bezcisobe.model.User;
 import cz.bezcisobe.repository.UserRepository;
 import cz.bezcisobe.security.JwtTokenUtil;
 import cz.bezcisobe.exception.RegistrationException;
+import cz.bezcisobe.exception.AuthenticationException;
 
 @Service
 public class UserService {
@@ -23,15 +24,21 @@ public class UserService {
     private JwtTokenUtil jwtTokenUtil;
 
     public LoginResponse login(String username, String password) {
-        // Authenticate user and generate token
-        User user = userRepository.findByUsername(username)
-            .orElseThrow(() -> new RuntimeException("User not found"));
-            
-        if (!passwordEncoder.matches(password, user.getPassword())) {
-            throw new RuntimeException("Invalid password");
-        }
+        try {
+            User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new AuthenticationException("Nesprávné uživatelské jméno nebo heslo"));
+                
+            if (!passwordEncoder.matches(password, user.getPassword())) {
+                throw new AuthenticationException("Nesprávné uživatelské jméno nebo heslo");
+            }
 
-        return new LoginResponse(user.getId(), jwtTokenUtil.generateToken(user));
+            return new LoginResponse(user.getId(), jwtTokenUtil.generateToken(user));
+        } catch (Exception e) {
+            if (e instanceof AuthenticationException) {
+                throw e;
+            }
+            throw new AuthenticationException("Došlo k chybě při přihlašování");
+        }
     }
 
     public void register(String username, String email, String password) {
