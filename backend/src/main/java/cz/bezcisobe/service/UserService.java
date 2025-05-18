@@ -9,6 +9,7 @@ import cz.bezcisobe.model.Role;
 import cz.bezcisobe.model.User;
 import cz.bezcisobe.repository.UserRepository;
 import cz.bezcisobe.security.JwtTokenUtil;
+import cz.bezcisobe.exception.RegistrationException;
 
 @Service
 public class UserService {
@@ -35,11 +36,11 @@ public class UserService {
 
     public void register(String username, String email, String password) {
         if (userRepository.existsByUsername(username)) {
-            throw new RuntimeException("Username already exists");
+            throw new RegistrationException("Uživatelské jméno je již zabrané");
         }
 
         if (userRepository.existsByEmail(email)) {
-            throw new RuntimeException("Email already exists");
+            throw new RegistrationException("Email je již registrován");
         }
 
         User user = new User();

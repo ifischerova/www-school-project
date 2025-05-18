@@ -28,8 +28,3 @@ const logout = () => {
     updateNavbarIcon();
     window.location.href = 'login.html';
 };
-
-// Add to pages that require authentication
-if (!isAuthenticated() && !window.location.href.endsWith("login.html")) {
-  window.location.href = 'login.html';
-}

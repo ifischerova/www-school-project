@@ -42,6 +42,7 @@ public class AuthController {
   @PostMapping("/register")
   public ResponseEntity<?> register(@RequestBody RegisterRequest registerRequest) {
       userService.register(registerRequest.getUsername(), registerRequest.getEmail(), registerRequest.getPassword());
-      return ResponseEntity.ok("User registered successfully");
+      // TODO: Create empty DTO instead of sending empty json a string
+      return ResponseEntity.ok("{}");
   }
 }
